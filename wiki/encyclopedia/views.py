@@ -8,3 +8,8 @@ def index(request):
         "entries": util.list_entries()
     })
 
+def CreatePage(request):
+    return render(request,"encyclopedia/createPage.html")
+
+def RandomPage(request):
+    return render(request,"encyclopedia/randompage.html")

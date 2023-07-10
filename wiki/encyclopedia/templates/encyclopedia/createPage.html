@@ -1,0 +1,24 @@
+{%extends "encyclopedia/layout.html"%}
+{% block title %}
+    Create Pages 
+{% endblock  %}
+
+{%block body%}
+<h1>CreatePage</h1>
+<form>
+    <div class="form-group">
+       <label for="title">Title</label>
+        <input type="text" class="form-control" placeholder="Enter The Title">
+
+    </div>
+    
+    <div class="form-group">
+        <label for="content">Content</label>
+        <textarea class="form-control" id="content" rows="2"placeholder="Enter your text here" ></textarea>
+        
+      </div>
+      <button type="submit" class="btn btn-outline-primary">Create</button>
+</form>
+
+
+{%endblock%}
