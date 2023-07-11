@@ -5,16 +5,17 @@
 
 {%block body%}
 <h1>CreatePage</h1>
-<form action=" {% util "save_entry"%}" method="post">
+    <form action="{% url "createpage"%}"  method="post">
+        {% csrf_token %}
     <div class="form-group">
        <label for="title">Title</label>
-        <input type="text" class="form-control" placeholder="Enter The Title">
+        <input type="text" name="title" class="form-control" placeholder="Enter The Title">
 
     </div>
     
     <div class="form-group">
         <label for="content">Content</label>
-        <textarea class="form-control" id="content" rows="2"placeholder="Enter your text here" ></textarea>
+        <textarea class="form-control" name="content" rows="2"placeholder="Enter your text here" ></textarea>
         
       </div>
       <button type="submit" class="btn btn-outline-primary">Create</button>
