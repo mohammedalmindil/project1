@@ -5,14 +5,15 @@
 {% endblock %}
 
 {% block body %}
-<div class="form-group">
     {{content |safe}}
-</div>
-<div class="form-group">
-    <from action="{% url 'edit'%}" method="post">
+<form action="{% url 'edit'%}"method="POST">
         {% csrf_token %}
-        <input type="hidden" name="titleE" value="{{Title}}">
-        <input type="submit" value="Edit" class="btn btn-outline-primary">
-    </form>
-</div>
+        <input type="hidden"name="title" value="{{Title}}">
+        <input type="submit" class="btn btn-primary" value="Edit page">
+
+ </form>
+
+
+ 
+
 {% endblock %}

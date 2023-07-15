@@ -9,6 +9,6 @@ urlpatterns = [
     path("ResultPage",views.ResultPage, name="result"),
     path("wiki/<str:name>",views.EntryPage ,name="entrypage"),
     path("SearchPage",views.SearchPage,name="searchpage"),
-    path("EditPage",views.EditPage, name="edit"),
+    path("Editpage",views.EditPage, name="edit"),
     path("SaveEdit",views.SaveEdit,name="saveEdit")
 ]

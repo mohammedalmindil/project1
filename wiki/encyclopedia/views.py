@@ -3,6 +3,7 @@ from django.shortcuts import render
 from encyclopedia import util
 from . import util
 import markdown2
+import random
 
 def Duplication(entry):
     if util.get_entry(entry) is not None:
@@ -45,7 +46,13 @@ def CreatePage(request):
     
 
 def RandomPage(request):
-    return render(request,"encyclopedia/randompage.html")
+    listEntry=util.list_entries()
+    randomentry=random.choice(listEntry)
+    content=convert(randomentry)
+    return render(request,"encyclopedia/entrypage.html",{
+        "Title":randomentry,
+        "content":content
+    })
 
 
 
@@ -95,14 +102,15 @@ def SearchPage(request):
             
 
 def EditPage(request):
-    if request.method=="POST":
+   if  request.method =="POST":
         form= request.POST
-        title= form["titleE"]
-        entry=util.get_entry(title)
-        return render(request,"encyclopedia/editpage.html",{
-         "Title":title,
-         "content":entry
-             })
+        title= form["title"]
+        content=util.get_entry(title)
+        return render(request, "encyclopedia/editpage.html", {
+            "Title":title,
+            "content":content
+        })
+     
 def SaveEdit(request):
     if request.method =="POST":
         form= request.POST
